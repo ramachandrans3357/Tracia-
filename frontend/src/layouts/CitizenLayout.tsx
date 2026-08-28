@@ -37,7 +37,7 @@ export const CitizenLayout: React.FC = () => {
       {/* Global Header */}
       <Header userRole="citizen" />
 
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
         {/* Desktop Sidebar (White bg with #DDE5E3 border) */}
         <aside className="hidden md:flex flex-col w-64 bg-white border-r border-[#DDE5E3] text-[#172121] shrink-0 justify-between">
           <div>
@@ -89,15 +89,17 @@ export const CitizenLayout: React.FC = () => {
         </aside>
 
         {/* Mobile Nav Top Bar */}
-        <div className="md:hidden bg-[#034E4E] text-white px-4 py-2.5 flex items-center justify-between border-b border-[#023B3B]">
-          <span className="text-xs font-bold text-white/90 uppercase tracking-wider">TRACIA Navigation</span>
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="p-1 rounded text-white hover:bg-[#023B3B]"
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+        <div className="md:hidden bg-[#034E4E] text-white px-4 py-2.5 flex items-center justify-between border-b border-[#023B3B] w-full shrink-0">
+          <div className="flex items-center space-x-2.5">
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="p-1 rounded text-white hover:bg-[#023B3B]"
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+            <span className="text-xs font-bold text-white/90 uppercase tracking-wider">TRACIA Navigation</span>
+          </div>
         </div>
 
         {/* Mobile Menu Drawer Backdrop */}

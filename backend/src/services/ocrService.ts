@@ -298,13 +298,19 @@ JSON Schema:
         extractedFields = ocrFieldExtractor.extractFields(rawText);
       }
 
+      // Ensure document_type is never null or empty (satisfies NOT NULL constraint)
+      const sanitizedFields = {
+        ...extractedFields,
+        document_type: extractedFields?.document_type || document.document_type || 'Title Deed'
+      };
+
       // 8. Update document record with success status and extracted fields
       const { data: updatedDocs, error: updateError } = await supabaseAdmin
         .from('land_documents')
         .update({
           ocr_status: 'completed',
           extracted_text: rawText,
-          ...extractedFields,
+          ...sanitizedFields,
           updated_at: new Date().toISOString()
         })
         .eq('id', id)

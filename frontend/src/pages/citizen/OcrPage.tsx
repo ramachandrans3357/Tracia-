@@ -298,7 +298,7 @@ export const CitizenOcrPage: React.FC = () => {
           {/* Document Analysis Grid */}
           <div className="space-y-3">
             <h3 className="text-xs font-bold text-[#034E4E] uppercase tracking-wider">Document Analysis</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-[#F4F8F7] p-4 rounded-xl border border-[#D9E2E1]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 bg-[#F4F8F7] p-4 rounded-xl border border-[#DDE5E3]">
               {verificationResult.fields.map((f) => (
                 <div key={f.field} className="space-y-1">
                   <span className="block text-[10px] uppercase font-bold text-slate-500">{f.field.replace(/_/g, ' ')}</span>
